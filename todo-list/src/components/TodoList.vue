@@ -6,8 +6,8 @@
       <div id="button" @click="add">Add</div>
     </div>
     <br />
-    <v-check-list :items="items" />
-    <v-filters />
+    <v-check-list :items="showItems" v-on:changeCheck="change" />
+    <v-filters v-on:filter="filter" />
   </div>
 </template>
 
@@ -25,13 +25,31 @@ export default {
   data() {
     return {
       newItem: "",
-      items: []
+      items: [],
+      showItems: []
     };
   },
   methods: {
     add() {
       this.items.push({ isChecked: false, content: this.newItem });
       this.newItem = "";
+      this.showItems = this.items.slice();
+    },
+    filter(filterMethod) {
+      switch(filterMethod) {
+        case 1: 
+          this.showItems = this.items.slice();
+          break;
+        case 2:
+          this.showItems = this.items.filter(item => item.isChecked == false);
+          break;
+        case 3:
+          this.showItems = this.items.filter(item => item.isChecked == true);
+          break;
+      }
+    },
+    change() {
+      this.items = this.showItems.slice();
     }
   }
 };

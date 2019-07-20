@@ -1,8 +1,8 @@
 <template>
   <div id="check-list">
     <ol>
-      <li v-for="item in items" v-bind:key="item.content">
-        <input type="checkbox" class="done-todo" v-model="item.isChecked" />
+      <li v-for="(item, index) in items" :key="index">
+        <input type="checkbox" class="done-todo" @click="$emit('changeCheck')" v-model="item.isChecked" />
         <span v-bind:class="{checked: item.isChecked}">{{ item.content }}</span>
       </li>
     </ol>
