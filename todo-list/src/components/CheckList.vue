@@ -1,21 +1,9 @@
 <template>
   <div id="check-list">
     <ol>
-      <li>
+      <li v-for="item in items" v-bind:key="item">
         <input type="checkbox" class="done-todo" />
-        <span>111</span>
-      </li>
-      <li>
-        <input type="checkbox" class="done-todo" />
-        <span>222</span>
-      </li>
-      <li>
-        <input type="checkbox" class="done-todo" />
-        <span>333</span>
-      </li>
-      <li>
-        <input type="checkbox" class="done-todo" />
-        <span>444</span>
+        <span>{{ item }}</span>
       </li>
     </ol>
   </div>
@@ -23,6 +11,7 @@
 
 <script>
 export default {
-  name: "checkList"
+  name: "checkList",
+  props: ['items']
 };
 </script>

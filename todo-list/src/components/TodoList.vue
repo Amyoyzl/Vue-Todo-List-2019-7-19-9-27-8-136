@@ -2,11 +2,11 @@
   <div id="todo-list">
     <v-header />
     <div>
-      <input class="input-text" type="text" />
-      <div id="button">Add</div>
+      <input class="input-text" type="text" v-model="newItem"/>
+      <div id="button" @click="add">Add</div>
     </div>
     <br />
-    <v-check-list />
+    <v-check-list :items="items"/>
     <v-filters />
   </div>
 </template>
@@ -23,7 +23,15 @@ export default {
     "v-filters": Filters
   },
   data() {
-    return {};
-  }
+    return {
+      newItem: '',
+      items: []
+    };
+  },
+  methods: {
+    add() {
+      this.items.push(this.newItem);
+    }
+  },
 };
 </script>
