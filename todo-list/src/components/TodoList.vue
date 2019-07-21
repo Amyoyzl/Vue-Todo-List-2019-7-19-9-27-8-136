@@ -12,9 +12,10 @@
 </template>
 
 <script>
-import Header from "./Header.vue";
-import CheckList from "./CheckList.vue";
-import Filters from "./Filters.vue";
+import Header from "./Header.vue"
+import CheckList from "./CheckList.vue"
+import Filters from "./Filters.vue"
+import FILTERMETHOD from '../constants/FilterMethod'
 export default {
   name: "TodoList",
   components: {
@@ -27,7 +28,7 @@ export default {
       newItem: "",
       items: [],
       len: 0,
-      filterMethod: 1
+      filterMethod: FILTERMETHOD.ALL
     };
   },
   methods: {

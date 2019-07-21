@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import FILTERMETHOD from '../constants/FilterMethod'
 export default {
   name: "checkList",
   props: ["items", "method"],
@@ -31,13 +32,13 @@ export default {
     },
     filters(methods) {
       switch(methods) {
-        case 1: 
+        case FILTERMETHOD.ALL: 
           this.showItems = Object.assign(this.items);
           break;
-        case 2: 
+        case FILTERMETHOD.ACTIVE: 
           this.showItems = this.items.filter(item => !item.isChecked);
           break;
-        case 3:
+        case FILTERMETHOD.COMPLETE:
           this.showItems = this.items.filter(item => item.isChecked);
           break;
       }
