@@ -2,13 +2,13 @@
   <div id="filters">
     <ul id="filters">
       <li>
-        <a @click="$emit('filter', 1)">ALL</a>
+        <a @click="$emit('filter', this.FILTER_METHOD.ALL)">ALL</a>
       </li>
       <li>
-        <a @click="$emit('filter', 2)">Active</a>
+        <a @click="$emit('filter', this.FILTER_METHOD.ACTIVE)">Active</a>
       </li>
       <li>
-        <a @click="$emit('filter', 3)">Complete</a>
+        <a @click="$emit('filter', this.FILTER_METHOD.COMPLETE)">Complete</a>
       </li>
     </ul>
   </div>
